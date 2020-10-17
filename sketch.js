@@ -14,8 +14,8 @@ let dodged;
 let hiScore = 0;
 let ship, Calculators, stars;
 function preload() {
-  calImg = loadImage('assets/maths.png')
-  std=loadImage('assets/std.png')
+  calImg = loadImage('assets/maths.jpg')
+  std=loadImage('assets/std.jpg')
   
 }
 
