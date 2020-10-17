@@ -9,15 +9,18 @@ class Ship {
     }
 
     show() {
-        stroke(20);
-        strokeWeight(4);
-        fill(255, 0, 0);
-        ellipse(this.position, height - this.size, this.size);
-        noStroke();
-        fill(255, 120, 120);
-        ellipse(this.position - this.size * 0.2, height - this.size * 1.2, this.size * 0.3);
-        fill(255);
-        ellipse(this.position - this.size * 0.2, height - this.size * 1.2, this.size * 0.2);
+        // stroke(20);
+        // strokeWeight(4);
+        // fill('rgba(100%,0%,100%,0.5)');
+        // ellipse(this.position, height - this.size, this.size);
+      imageMode(CENTER);
+      image(std, this.position, height-this.size, this.size,this.size);
+      
+        // noStroke();
+        // fill(255, 120, 120);
+        // ellipse(this.position - this.size * 0.2, height - this.size * 1.2, this.size * 0.3);
+        // fill(255);
+        // ellipse(this.position - this.size * 0.2, height - this.size * 1.2, this.size * 0.2);
     }
 
     update() {
@@ -70,7 +73,7 @@ class Calculator {
 
     collided(ship) {
         const d2 = sq(ship.position - this.position.x) + sq(height - ship.size - this.position.y);
-        const threshold = sq(ship.size * 0.55) + sq(this.size * 0.55);
+        const threshold = sq(ship.size * 0.6) + sq(this.size * 0.6);
         return (d2 < threshold);
     }
 }

@@ -1,6 +1,6 @@
 // Game state variable: Training 0, Game 1, Game over 2
 let gameState = 0;
-
+let song;
 // Webcam input and regression model
 let video;
 let regressor;
@@ -15,9 +15,13 @@ let hiScore = 0;
 let ship, Calculators, stars;
 function preload() {
   calImg = loadImage('assets/maths.png')
+  std=loadImage('assets/std.png')
+  
 }
 
+
 function setup() {
+  song = loadSound('assets/song.mp3');
     const canvas = createCanvas(640, 480);
     background(0);
     noStroke(30);
@@ -99,7 +103,7 @@ function changeState(state) {
     gameState = state;
     
     if (state === 0) {
-        select('#info').html('Add images you wish to controll the game and press train to let the magic happen!');
+        select('#info').html('Add images you wish to controll the game and press train to let the magic happen!✨');
         select('#buttons').show();
         select('#train').show();
     } else {
@@ -112,10 +116,12 @@ function changeState(state) {
         ship = new Ship();
         Calculators = [new Calculator()];
         makeStars();
+      song.play();
         select('#info').html('0 Calculators dodged. High score: ' + hiScore);
     }
 
     if (state === 2) {
         select('#info').html('Press space to restart');
+      song.stop();
     }
 }
